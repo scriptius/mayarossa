@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="php3" default="build" basedir=".">
+
+    <target name="vars">
+        <resolvepath propertyName="target.dir" path="c:\\OpenServer\domains\mayarossa" />
+        <property name="domain" value="mayarossa.ru"/>
+        <echo msg=" this is project.basedir - ${project.basedir}" />
+        <echo msg="this is target.dir - ${target.dir}" />s
+    </target>
+
+    <target name="copy">
+        <copy todir="${target.dir}" overwrite="true">
+            <fileset dir="${project.basedir}" >
+                <include name="**" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="build" depends="vars" />
+
+
+
+</project>
