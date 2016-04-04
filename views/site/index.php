@@ -3,7 +3,11 @@
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
-$this->con
+$config = require(__DIR__ . '/../../config/params.php');
+echo 'Добро пожаловать на '.$config['domain'];
+var_dump( $this->params['domain']);
+die;
+
 ?>
 <div class="site-index">
 
