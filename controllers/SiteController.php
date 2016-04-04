@@ -49,7 +49,8 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $config = require(__DIR__ . '/../config/params.php');
+        return $this->render('index',['domain' => $config['domain']]);
     }
 
     public function actionLogin()
