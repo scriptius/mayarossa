@@ -2,6 +2,6 @@
 
 return [
     'adminEmail' => 'admin@example.com',
-    'domain' => 'mayarossa.ru',
+    'domain' => '{{domain}}',
 
 ];
