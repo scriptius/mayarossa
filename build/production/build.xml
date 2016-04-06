@@ -39,7 +39,12 @@
 	<target name="symlink">
         <symlink target="${target.dir}" link="/home/domains/mayarossa/current" overwrite="true" />
     </target>
-
-    <target name="build" depends="vars, copy, config, composer, symlink" />
+	
+	<target name="rightsAndFolders">
+		<exec command="chmod 777 /home/domains/mayarossa/current/web/assets/" dir="${target.dir}" checkreturn="true" returnProperty="exec.return" outputProperty="exec.output"/>
+		<exec command="chmod 700 /home/domains/mayarossa/current/runtime" dir="${target.dir}" checkreturn="true" returnProperty="exec.return" outputProperty="exec.output"/>
+	</target>
+	
+    <target name="build" depends="vars, copy, config, composer, symlink, rightsAndFolders" />
 
 </project>
