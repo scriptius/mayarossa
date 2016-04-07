@@ -3,7 +3,7 @@
 return [
     'class' => 'yii\db\Connection',
     'dsn' => 'mysql:host=localhost;dbname=mayarossa',
-    'username' => 'root',
-    'password' => '',
+    'username' => '{{db.username}}',
+    'password' => '{{db.password}}',
     'charset' => 'utf8',
 ];

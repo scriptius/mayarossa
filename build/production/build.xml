@@ -20,13 +20,20 @@
     </target>
 	
 	<target name="config">
-	<echo msg="${domain}" />
         <copy file="${project.basedir}\config\params.php" tofile="${target.dir}\config\params.php"
               overwrite="true">
-			  
-            <filterchain>
+			              <filterchain>
                 <replacetokens begintoken="{{" endtoken="}}">
                     <token key="domain" value="${domain}"/>
+                </replacetokens>
+            </filterchain>
+        </copy>
+
+        <copy file="${project.basedir}\build\config\db.php" tofile="${target.dir}\config\db.php"  overwrite="true">
+            <filterchain>
+                <replacetokens begintoken="{{" endtoken="}}">
+                    <token key="db.username" value="${db.username}"/>
+                    <token key="db.password" value="${db.password}"/>
                 </replacetokens>
             </filterchain>
         </copy>
