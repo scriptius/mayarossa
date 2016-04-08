@@ -49,8 +49,6 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $dbh = new \yii\db\Connection(Yii::$app->db);
-        var_dump($dbh);
         $config = require(__DIR__ . '/../config/params.php');
         return $this->render('index',['domain' => $config['domain']]);
     }

@@ -10,16 +10,15 @@ class m160407_135858_createTableUsers extends Migration
         $this->createTable('Users', [
             'id' => $this->bigPrimaryKey(),
             'firstName' => $this->string()->notNull(),
-            'lasttName' => $this->string()->notNull(),
+            'lastName' => $this->string()->notNull(),
+            'login' => $this->string()->notNull(),
             'email' => $this->string()->notNull()->unique(),
-            'roleId' => $this->integer()->unsigned()
+            'roleId' => $this->integer()
         ]);
 
         $this->insert('Users', [
-            'firstName' => 'Admin',
-            'lasttName' => 'Admin',
+            'login' => 'Admin',
             'email' => 'admin@mayarossa.ru',
-            'roleId' => 1
         ]);
     }
 
