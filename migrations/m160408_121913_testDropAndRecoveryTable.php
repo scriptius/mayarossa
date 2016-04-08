@@ -7,7 +7,7 @@ class m160408_121913_testDropAndRecoveryTable extends Migration
     public function up()
     {
         /* 1 способ - Переименовать таблицу
-    $this->renameTable('Users','UsersRemove');
+    $this->renameTable('UsersRoles','UsersRolesRemove');
         */
 
         /*
@@ -27,7 +27,7 @@ class m160408_121913_testDropAndRecoveryTable extends Migration
     public function down()
     {
         /* 1 способ - Переименовать таблицу
-        $this->renameTable('UsersRemove','Users');
+        $this->renameTable('UsersRolesRemove','UsersRoles');
         */
     }
 
