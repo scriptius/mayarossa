@@ -53,6 +53,12 @@
         <exec command="sudo chmod 700 /home/domains/mayarossa/current/runtime" dir="${target.dir}" checkreturn="true" returnProperty="exec.return" outputProperty="exec.output"/>
     </target>
 
-    <target name="build" depends="vars, copy, config, composer, symlink, rightsAndFolders" />
+    <target name="migration">
+        <exec command="php yii migrate" dir="${target.dir}" checkreturn="true" returnProperty="exec.return" outputProperty="exec.output"/>
+    </target>
+
+    <target name="build" depends="vars, copy, config, composer, symlink, rightsAndFolders, migration" />
+
+
 
 </project>
