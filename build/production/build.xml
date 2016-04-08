@@ -54,11 +54,9 @@
     </target>
 
     <target name="migration">
-        <exec command="php yii migrate" dir="${target.dir}" checkreturn="true" returnProperty="exec.return" outputProperty="exec.output"/>
+        <exec command=" php yii migrate --interactive=0" dir="${target.dir}" checkreturn="true" returnProperty="exec.return" outputProperty="exec.output"/>
     </target>
 
     <target name="build" depends="vars, copy, config, composer, symlink, rightsAndFolders, migration" />
-
-
 
 </project>
