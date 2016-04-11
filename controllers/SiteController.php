@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\UserForm;
 
 class SiteController extends Controller
 {
@@ -49,7 +50,30 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $user = new \app\models\User();
+
+        $model = new UserForm();
+       
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // данные в $model удачно проверены
+
+            // делаем что-то полезное с $model ...
+//            var_dump(Yii::$app->request->post('UserForm'));
+
+            $user = new \app\models\User();
+            $user->attributes = Yii::$app->request->post('UserForm');
+            var_dump($user->save());
+//            $user->save();
+die;
+            return $this->render('entry-confirm', ['model' => $model]);
+        } else {
+            // либо страница отображается первый раз, либо есть ошибка в данных
+            return $this->render('entry', ['model' => $model]);
+        }
+    die;
+
+
+
 
         $user->email='fvsrfbsb';
 

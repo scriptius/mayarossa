@@ -1,15 +1,20 @@
 <?php
 
+namespace app\models;
 class UserForm
     extends \yii\base\Model
 {
-    public $username;
-    public $password;
+    public $login;
+    public $firstName;
+    public $lastName;
+    public $patronymic;
+    public $email;
 
     public function rules()
     {
         return [
-            // тут определяются правила валидации
+            [['login', 'email'], 'required'],
+            ['email', 'email'],
         ];
     }
 }
