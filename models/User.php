@@ -24,7 +24,7 @@ class User
     public function rules()
     {
         return [
-            [['firstName', 'lastName', 'patronymic', 'login', 'email', 'status'], 'safe']
+            [['firstName', 'lastName', 'patronymic', 'login', 'email', 'roleId', 'status'], 'safe']
         ];
     }
 }

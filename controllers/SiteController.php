@@ -55,32 +55,14 @@ class SiteController extends Controller
        
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            // данные в $model удачно проверены
-
-            // делаем что-то полезное с $model ...
-//            var_dump(Yii::$app->request->post('UserForm'));
-
             $user = new \app\models\User();
             $user->attributes = Yii::$app->request->post('UserForm');
-            var_dump($user->save());
-//            $user->save();
-die;
+            $user->save();
             return $this->render('entry-confirm', ['model' => $model]);
         } else {
             // либо страница отображается первый раз, либо есть ошибка в данных
             return $this->render('entry', ['model' => $model]);
         }
-    die;
-
-
-
-
-        $user->email='fvsrfbsb';
-
-//        var_dump($user);
-       var_dump(Yii::$app->request->post());
-
-//        die;
         $config = require(__DIR__ . '/../config/params.php');
         return $this->render('index',['domain' => $config['domain']]);
     }
