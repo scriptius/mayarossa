@@ -4,4 +4,4 @@
 
 $this->title = 'My Yii Application';
 ?>
-<h1>Добро пожаловать на <?= $domain; ?></h1>
+<h1>Добро пожаловать на <?php echo $domain; ?></h1>
