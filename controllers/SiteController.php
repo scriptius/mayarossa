@@ -49,6 +49,14 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        $user = new \app\models\User();
+
+        $user->email='fvsrfbsb';
+
+//        var_dump($user);
+       var_dump(Yii::$app->request->post());
+
+//        die;
         $config = require(__DIR__ . '/../config/params.php');
         return $this->render('index',['domain' => $config['domain']]);
     }

@@ -9,11 +9,13 @@ class m160407_135858_createTableUsers extends Migration
     {
         $this->createTable('Users', [
             'id' => $this->bigPrimaryKey(),
-            'firstName' => $this->string()->notNull(),
-            'lastName' => $this->string()->notNull(),
+            'firstName' => $this->string(),
+            'lastName' => $this->string(),
+            'patronymic' => $this->string(),
             'login' => $this->string()->notNull(),
             'email' => $this->string()->notNull()->unique(),
-            'roleId' => $this->integer()
+            'roleId' => $this->integer(),
+            'status' => $this->boolean()->notNull()
         ]);
 
         $this->insert('Users', [
