@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\UserForm;
+use app\mail\Mailer;
 
 class SiteController extends Controller
 {
@@ -60,9 +61,9 @@ class SiteController extends Controller
             $user->save();
             return $this->render('entry-confirm', ['model' => $model]);
         } else {
-            // либо страница отображается первый раз, либо есть ошибка в данных
             return $this->render('entry', ['model' => $model]);
         }
+
         $config = require(__DIR__ . '/../config/params.php');
         return $this->render('index',['domain' => $config['domain']]);
     }
@@ -113,5 +114,16 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionMail()
+    {
+        $mail = new Mailer();
+        var_dump($mail);
+//        die;
+        $mail->Send();
+
+
+        return $this->render('mail');
     }
 }
