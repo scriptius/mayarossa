@@ -119,11 +119,7 @@ class SiteController extends Controller
     public function actionMail()
     {
         $mail = new Mailer();
-        var_dump($mail);
-//        die;
         $mail->Send();
-
-
         return $this->render('mail');
     }
 }
