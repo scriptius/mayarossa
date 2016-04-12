@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\UserForm;
 
 class SiteController extends Controller
 {
@@ -49,14 +50,19 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $user = new \app\models\User();
 
-        $user->email='fvsrfbsb';
+        $model = new UserForm();
+       
 
-//        var_dump($user);
-       var_dump(Yii::$app->request->post());
-
-//        die;
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $user = new \app\models\User();
+            $user->attributes = Yii::$app->request->post('UserForm');
+            $user->save();
+            return $this->render('entry-confirm', ['model' => $model]);
+        } else {
+            // либо страница отображается первый раз, либо есть ошибка в данных
+            return $this->render('entry', ['model' => $model]);
+        }
         $config = require(__DIR__ . '/../config/params.php');
         return $this->render('index',['domain' => $config['domain']]);
     }
@@ -85,15 +91,23 @@ class SiteController extends Controller
 
     public function actionContact()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
 
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
+        $user = new \app\models\User();
+        $user->firstName = 'Иванов';
+        $user->lastName = 'Иван';
+        $user->patronymic = 'Иванович';
+        $user->email = 'test@example.com';
+        echo($user->getName());
+
+//        $model = new ContactForm();
+//        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+//            Yii::$app->session->setFlash('contactFormSubmitted');
+//
+//            return $this->refresh();
+//        }
+//        return $this->render('contact', [
+//            'model' => $model,
+//        ]);
     }
 
     public function actionAbout()
