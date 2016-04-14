@@ -51,6 +51,8 @@
         <exec command="sudo chmod 777 /home/domains/mayarossa/current/web/assets/" dir="${target.dir}" checkreturn="true" returnProperty="exec.return" outputProperty="exec.output"/>
         <exec command="sudo chown -R www-data:www-data /home/domains/mayarossa/current/runtime" dir="${target.dir}" checkreturn="true" returnProperty="exec.return" outputProperty="exec.output"/>
         <exec command="sudo chmod 700 /home/domains/mayarossa/current/runtime" dir="${target.dir}" checkreturn="true" returnProperty="exec.return" outputProperty="exec.output"/>
+        <exec command="sudo service php5-fpm reload" dir="${target.dir}" checkreturn="true" returnProperty="exec.return" outputProperty="exec.output"/>
+
     </target>
 
     <target name="migration">
