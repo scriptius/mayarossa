@@ -19,14 +19,19 @@ class MemoryController
         echo 'memory before test:'.$memoryBefore.PHP_EOL;
         $i = 1;
         $j =1000000;
-        do {
+        do
+        {
             $test[] = $i;
             ++$i;
         }
         while ($i <= $j);
         $memoryAfter = memory_get_usage();
         echo 'memory after test:'.$memoryAfter.PHP_EOL;
-        echo 'Element type of int used '.($memoryAfter-$memoryBefore)/$j.' Bytes';
+        echo 'array consist from '.$j.' elements'.PHP_EOL;
+        echo 'One element type of int, used '.($memoryAfter-$memoryBefore)/$j.' Bytes';
+        print_r(get_declared_classes());
+        var_dump($new = new \ReflectionClass('yii\base\Object'));
+        var_dump($new::IS_FINAL);
     }
 
 }

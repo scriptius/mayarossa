@@ -100,6 +100,18 @@ class SiteController extends Controller
         $user->email = 'test@example.com';
         echo($user->getName());
 
+        $allProperty = get_object_vars(Yii::$app);
+//        var_dump($allProperty);
+//        die;
+        foreach ($allProperty as $object){
+            if (is_object($object)){
+                $this->getChainObjects($object);
+            }
+//            else{
+//                echo 0;
+//            }
+        }
+
 //        $model = new ContactForm();
 //        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
 //            Yii::$app->session->setFlash('contactFormSubmitted');
@@ -110,6 +122,9 @@ class SiteController extends Controller
 //            'model' => $model,
 //        ]);
     }
+ public function getChainObjects($object){
+
+ }
 
     public function actionAbout()
     {
