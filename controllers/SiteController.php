@@ -13,6 +13,7 @@ use app\mail\Mailer;
 
 class SiteController extends Controller
 {
+    public $chain = [];
     public function behaviors()
     {
         return [
@@ -101,11 +102,11 @@ class SiteController extends Controller
         echo($user->getName());
 
         $allProperty = get_object_vars(Yii::$app);
-//        var_dump($allProperty);
-//        die;
+        var_dump($allProperty);
+        die;
         foreach ($allProperty as $object){
             if (is_object($object)){
-                $this->getChainObjects($object);
+               var_dump( $this->getChainObjects($object));
             }
 //            else{
 //                echo 0;
@@ -122,8 +123,19 @@ class SiteController extends Controller
 //            'model' => $model,
 //        ]);
     }
- public function getChainObjects($object){
+ public function getChainObjects($object)
+ {
+//     var_dump($object->chain);
+//     die;
+     $allProperty = get_object_vars(Yii::$app);
 
+     foreach ($allProperty as $object) {
+         if (is_object($object)) {
+           $this->chain[] = get_class($object);
+//          $this->getChainObjects($object);
+         }
+     }
+     return $this->chain;
  }
 
     public function actionAbout()
