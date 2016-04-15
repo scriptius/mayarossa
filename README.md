@@ -1,4 +1,5 @@
 Сайт находится по адресу http://mayarossa.ru
+
 Самая длинная цепочка Yii::$app->getDb()->schema->db->getTableSchema()
 
             Тестирвание массива из элементов int
