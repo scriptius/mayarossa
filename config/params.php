@@ -2,8 +2,8 @@
 
 return [
     'emailAdmin' => [
-        'login' => 'levik04122008',
-        'pass' => '####'
+        'login' => '871b0bd527a04f',
+        'pass' => '133720be1e817b'
 //        'pass' => '{{email.pass}}'
     ],
     'domain' => 'mayarossa.ru',

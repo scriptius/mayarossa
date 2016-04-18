@@ -16,7 +16,7 @@ class Mailer
 
 // Create the Transport
         $config = \Yii::$app->params;
-        $transport = (new \Swift_SmtpTransport('smtp.yandex.ru', 465, 'ssl'))
+        $transport = (new \Swift_SmtpTransport('mailtrap.io', 465))
             ->setUsername($config['emailAdmin']['login'])
             ->setPassword($config['emailAdmin']['pass']);
 

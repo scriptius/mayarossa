@@ -93,21 +93,20 @@ class SiteController extends Controller
 
     public function actionContact()
     {
-
-        $user = new \app\models\User();
-        $user->firstName = 'Иванов';
-        $user->lastName = 'Иван';
-        $user->patronymic = 'Иванович';
-        $user->email = 'test@example.com';
-        echo($user->getName());
-
-        $allProperty = get_object_vars(Yii::$app);
-        var_dump($allProperty);
-        die;
-        foreach ($allProperty as $object){
-            if (is_object($object)){
-               var_dump( $this->getChainObjects($object));
-            }
+var_dump(Yii::$app->getDb()->schema->db->getTableSchema());
+//        $user = new \app\models\User();
+//        $user->firstName = 'Иванов';
+//        $user->lastName = 'Иван';
+//        $user->patronymic = 'Иванович';
+//        $user->email = 'test@example.com';
+//        echo($user->getName());
+//        $allProperty = get_object_vars(Yii::$app);
+//        var_dump($allProperty);
+//        die;
+//        foreach ($allProperty as $object){
+//            if (is_object($object)){
+//               var_dump( $this->getChainObjects($object));
+//            }
 //            else{
 //                echo 0;
 //            }
@@ -122,7 +121,7 @@ class SiteController extends Controller
 //        return $this->render('contact', [
 //            'model' => $model,
 //        ]);
-    }
+//    }
  public function getChainObjects($object)
  {
 //     var_dump($object->chain);
