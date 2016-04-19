@@ -7,7 +7,6 @@ class Annotations
 {
     public function getFullName()
     {
-        die;
         $reflector = new \ReflectionMethod($this, 'getFullName');
         preg_match_all('~@template "(.*)"~U', $reflector->getDocComment(), $matches);
         $template = $matches[1][0];
