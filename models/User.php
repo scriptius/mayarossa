@@ -9,8 +9,9 @@
 namespace app\models;
 
 use yii\db\ActiveRecord;
+use app\components\Annotations;
 
-class User
+class User extends Annotations
 //    extends ActiveRecord
 {
     const STATUS_INACTIVE = 0;
@@ -28,14 +29,23 @@ class User
         ];
     }
 
-    public function getName()
+    /**
+     * @template "$firstName $lastName"
+     *
+     */
+    public function getFullName()
     {
+        return parent::getFullName();
+/*
         if (!empty($this->firstName) && !empty($this->lastName)){
             return (!empty($this->patronymic))? implode(' ', [$this->firstName, $this->lastName, $this->patronymic]) :
                                                 implode(' ', [$this->firstName, $this->lastName]);
         }
 
         return $this->email;
+
+*/
+
 
 //        return
 //            (!empty($this->firstName) && !empty($this->lastName))?

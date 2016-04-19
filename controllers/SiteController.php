@@ -52,11 +52,8 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-
         $model = new UserForm();
-       
-
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+               if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $user = new \app\models\User();
             $user->attributes = Yii::$app->request->post('UserForm');
             $user->save();
@@ -93,13 +90,12 @@ class SiteController extends Controller
 
     public function actionContact()
     {
-var_dump(Yii::$app->getDb()->schema->db->getTableSchema());
-//        $user = new \app\models\User();
-//        $user->firstName = 'Иванов';
-//        $user->lastName = 'Иван';
-//        $user->patronymic = 'Иванович';
-//        $user->email = 'test@example.com';
-//        echo($user->getName());
+        $user = new \app\models\User();
+        $user->firstName = 'Иванов';
+        $user->lastName = 'Иван';
+        $user->patronymic = 'Иванович';
+        $user->email = 'test@example.com';
+        echo($user->getFullName());
 //        $allProperty = get_object_vars(Yii::$app);
 //        var_dump($allProperty);
 //        die;
