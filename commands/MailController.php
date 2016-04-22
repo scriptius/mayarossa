@@ -25,7 +25,7 @@ class MailController extends Controller
                 'text' => 'Oplatite naonets zakaz'
             ]);
 
-//        $url = 'http://mail/index.php?r=mail/send';
+        $url = 'http://mail/index.php?r=mail/send';
 //        $ch = curl_init($url);
 //        curl_setopt($ch,
 //            CURLOPT_CUSTOMREQUEST, 'POST');
@@ -44,7 +44,23 @@ class MailController extends Controller
 //
 //        $result = curl_exec($ch);
 //        curl_close($ch);
-//        echo $result;
+//        var_dump( $result);
+
+
+//        $ch = curl_init();
+//        curl_setopt($ch, CURLOPT_URL, 'http://mail/test.php');
+//        curl_setopt($ch, CURLOPT_HEADER, false);
+//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//        // Нужно явно указать, что будет POST запрос
+//        curl_setopt($ch, CURLOPT_POST, true);
+//        // Здесь передаются значения переменных
+//        curl_setopt($ch, CURLOPT_POSTFIELDS, 'a=4&b=7');
+//        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+//        curl_setopt($ch, CURLOPT_USERAGENT, 'PHP Bot (http://mysite.ru)');
+//        $data = curl_exec($ch);
+//        var_dump($data);
+//        curl_close($ch);
+
 
 
 
@@ -56,8 +72,9 @@ class MailController extends Controller
                 'content' => http_build_query([
                     'data' => $json
                 ])
-            ]]);
-
+            ]
+        ]);
+// http://mail/index.php?r=mail/send
         $res = file_get_contents('http://mail/index.php?r=mail/send', null, $context);
         print_r($res);
 
