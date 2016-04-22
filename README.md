@@ -1,4 +1,11 @@
 Сайт находится по адресу http://mayarossa.ru
+микросервис - https://github.com/scriptius/mail
+cron и саму отправку не успел реализовать.
+Данные передаются через http, заносятся в базу и ответ 200
+
+
+
+
 
 Самая длинная цепочка Yii::$app->getDb()->schema->db->getTableSchema()
 
