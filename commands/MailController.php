@@ -20,20 +20,50 @@ class MailController extends Controller
     {
         $json = json_encode(
             [
-                'UserId' => 21,
-                'template' => 'ramember',
+                'userId' => 21,
+                'template' => 'remember',
                 'text' => 'Oplatite naonets zakaz'
             ]);
+
+//        $url = 'http://mail/index.php?r=mail/send';
+//        $ch = curl_init($url);
+//        curl_setopt($ch,
+//            CURLOPT_CUSTOMREQUEST, 'POST');
+//        curl_setopt($ch,
+//            CURLOPT_HTTPHEADER,
+//            ['Content-Type: application/json']
+//        );
+//        curl_setopt(
+//            $ch,
+//            CURLOPT_POSTFIELDS,
+//            http_build_query([ 'userId' => 21,
+//                'template' => 'remember',
+//                'text' => 'Oplatite naonets zakaz'])
+//        );
+//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//
+//        $result = curl_exec($ch);
+//        curl_close($ch);
+//        echo $result;
+
+
+
         $context = stream_context_create([
             'http' => [
                 'method' => 'POST',
+                'header'  => "Content-type: application/x-www-form-urlencoded\n\n",
+//                'request_fulluri' => true,
                 'content' => http_build_query([
                     'data' => $json
                 ])
             ]]);
 
-        $res = file_get_contents('http://mail/mail/test.php', null, $context);
+        $res = file_get_contents('http://mail/index.php?r=mail/send', null, $context);
         print_r($res);
+
+
+
+
 
         die;
         $mail = new Mailer();

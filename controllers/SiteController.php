@@ -52,6 +52,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        die;
         $model = new UserForm();
                if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $user = new \app\models\User();
