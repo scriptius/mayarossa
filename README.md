@@ -1,5 +1,15 @@
 Сайт находится по адресу http://mayarossa.ru
+
+
 микросервис - https://github.com/scriptius/mail
+
+https://github.com/scriptius/mail/blob/master/controllers/MailController.php
+
+https://github.com/scriptius/mail/blob/master/migrations/m160421_191401_CreateTableMailShedule.php
+
+https://github.com/scriptius/mayarossa/blob/master/commands/MailController.php
+
+
 cron и саму отправку не успел реализовать.
 Данные передаются через http, заносятся в базу и ответ 200
 
