@@ -20,25 +20,23 @@ class MailController extends Controller
     {
         $json = json_encode(
             [
-                'UserId' => 21,
-                'template' => 'ramember',
-                'text' => 'Oplatite naonets zakaz'
+                'userId' => 21,
+                'template' => 'remember',
+                'text' => 'Oplatite nakonets zakaz'
             ]);
+
         $context = stream_context_create([
             'http' => [
                 'method' => 'POST',
+                'header'  => "Content-type: application/x-www-form-urlencoded\n\n",
                 'content' => http_build_query([
                     'data' => $json
                 ])
-            ]]);
-
-        $res = file_get_contents('http://mail/mail/test.php', null, $context);
+            ]
+        ]);
+        
+        $res = file_get_contents('http://mail/index.php?r=mail/send', null, $context);
         var_dump($res);
-
-        die;
-        $mail = new Mailer();
-        $mail->Send();
-//        return $this->render('mail');
     }
 
 }
