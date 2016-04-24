@@ -33,7 +33,7 @@ class MailController extends Controller
             ]]);
 
         $res = file_get_contents('http://mail/mail/test.php', null, $context);
-        print_r($res);
+        var_dump($res);
 
         die;
         $mail = new Mailer();
