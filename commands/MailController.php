@@ -20,7 +20,7 @@ class MailController extends Controller
     {
         $json = json_encode(
             [
-                'userId' => 21,
+                'userId' => 2,
                 'template' => 'remember',
                 'text' => 'Oplatite nakonets zakaz'
             ]);
@@ -34,9 +34,30 @@ class MailController extends Controller
                 ])
             ]
         ]);
-        
+
         $res = file_get_contents('http://mail/index.php?r=mail/send', null, $context);
         var_dump($res);
     }
+    public function actionGetStatus()
+    {
+        $json = json_encode(
+            [
+                'numberInStack' => 3
+            ]);
+
+        $context = stream_context_create([
+            'http' => [
+                'method' => 'POST',
+                'header'  => "Content-type: application/x-www-form-urlencoded\n\n",
+                'content' => http_build_query([
+                    'data' => $json
+                ])
+            ]
+        ]);
+
+        $res = file_get_contents('http://mail/index.php?r=mail/status', null, $context);
+        var_dump($res);
+    }
+
 
 }
